@@ -2,10 +2,14 @@ package com.example.listview01.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import com.example.listview01.R;
 import com.example.listview01.datas.Store;
 
 import java.util.List;
@@ -24,6 +28,19 @@ public class StoreAdapter extends ArrayAdapter<Store> {
         mContext = context;
         mList = objects;
         inf = LayoutInflater.from(mContext);
+    }
 
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View row = convertView; // row는 지금 그려져야할 줄을 담는다.
+
+        if (row == null) {
+//            기존에 그려둔 게 없어서(null) 새로 그려야하나?
+//            실제로 그려주자.
+            row = inf.inflate(R.layout.store_list_item, null);
+        }
+
+        return row;
     }
 }
