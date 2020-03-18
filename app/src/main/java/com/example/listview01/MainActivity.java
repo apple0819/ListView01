@@ -17,6 +17,7 @@ public class MainActivity extends BaseActivity {
     List<Store> storeDatas = new ArrayList<>();
 //    목록을 뿌려줄 SotrAdapter 변수
     ActivityMainBinding binding = null;
+    StoreAdapter storeAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class MainActivity extends BaseActivity {
 
         setupEvents();
         setValues();
+        addStores();
 
     }
 
@@ -36,7 +38,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setValues() {
 //        어댑터를 객체화 (우리가 작성한 생성자 활용)
-        StoreAdapter storeAdapter = new StoreAdapter(mContext, R.layout.store_list_item, storeDatas);
+        storeAdapter = new StoreAdapter(mContext, R.layout.store_list_item, storeDatas);
         binding.storeListView.setAdapter(storeAdapter);
     }
 
